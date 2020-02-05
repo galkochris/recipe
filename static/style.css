@@ -51,7 +51,7 @@ header {
   transition:0.5s ease-in-out;
 }
 
-#links a:hover, #links a.active
+#links a:hover, #links a.active {color:color:white;}
 #links a:hover::before, #links a.active::before {width:100%;}
 #links span.pe {font-size:20px; display:block;}
 
