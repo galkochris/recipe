@@ -1,0 +1,42 @@
+ <!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <body>
+
+      {% block content %}
+
+    {% endblock %}
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+     <!-- BOOTSTRAP -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <!-- BOOTSTRAP THEME -->
+     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <link rel="stylesheet" href="static/style.css">
+
+     <script>
+       window.onscroll = function() {myFunction()};
+
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+     
+     
+     </script>
+
+     </head>
+    </body>
+    </html>
+     
