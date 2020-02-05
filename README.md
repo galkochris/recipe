@@ -3,6 +3,6 @@ Recipe is an online application that allows users to consisely condense recipes 
 Contributors:
 
 Joanelly Cruz
-Nick Kerns
+Nick Kearns
 Jorge Gallegos
 Christian Galkowski
