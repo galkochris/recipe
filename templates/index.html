@@ -8,6 +8,23 @@
 
 <div id="banner"><h1>Recipes</h1></div>
 
+
+<div class="recipes">
+
+
+    {% for recipe in recipes%}
+    <div>
+
+        <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
+        <p>"{{ recipe.title }}</p>
+
+    </div>
+    {%endfor%}
+    <!-- TODO: For each gif, include the 'gif.html' template to display it -->
+    
+
+</div>
+
 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Senectus et netus et malesuada fames ac turpis. Eu volutpat odio facilisis mauris sit amet massa vitae. Parturient montes nascetur ridiculus mus. Facilisi nullam vehicula ipsum a arcu cursus. Tortor at auctor urna nunc id cursus metus aliquam eleifend. Pellentesque id nibh tortor id aliquet lectus proin nibh. Sed faucibus turpis in eu mi bibendum neque egestas. Integer malesuada nunc vel risus commodo viverra maecenas accumsan. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet.
 
     Risus viverra adipiscing at in tellus. Quis lectus nulla at volutpat diam. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Ac felis donec et odio pellentesque diam volutpat. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. At varius vel pharetra vel turpis. Ullamcorper malesuada proin libero nunc consequat interdum varius. Sit amet volutpat consequat mauris. Faucibus in ornare quam viverra. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. In nisl nisi scelerisque eu ultrices vitae auctor eu augue.
