@@ -13,8 +13,13 @@ header {
   width: 100%;
 }
 
+.banner {
+  position: fixed;
+  padding-top: 100px;
+}
+
 #top {
-    position:fixed;
+    position: sticky;
     height:80px;
     top:0;
     left:0;
@@ -96,4 +101,18 @@ header {
 
 h1 {
   padding-top: -100px;
+}
+
+.container {
+  margin-left: -100px;
+  position: static;
+}
+
+.banner {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
 }
