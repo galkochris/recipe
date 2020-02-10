@@ -14,11 +14,17 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
+
+    search_term = request.args.get('user_input')
+
+
     params = {
-        'query': "burger",
+        'query': search_term,
         'apiKey': apikey,
-        'number': 10
+        'number': 3
     }
+
+    
 
 
     r = requests.get("https://api.spoonacular.com/recipes/search", params=params)
