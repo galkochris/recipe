@@ -13,6 +13,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    url = "https://api.spoonacular.com/recipes/random"
+
+    params = {
+        'number': 4,
+        'apiKey': apikey
+    }
+
+    r = requests.get(url, params=params)
+    json_recipes = json.loads(r.content)
+    recipes = json_recipes['recipes']
+
+    return render_template('index.html', recipes=recipes)
+
+@app.route('/recipe')
+def recipe():
 
 
     search_term = request.args.get('user_input')
@@ -24,18 +39,15 @@ def index():
         'number': 3
     }
 
-    
+    url = "https://api.spoonacular.com/recipes/search"
 
 
-    r = requests.get("https://api.spoonacular.com/recipes/search", params=params)
+    r = requests.get(url, params=params)
     if r.status_code == 200:
         json_recipes = json.loads(r.content)
         recipes = json_recipes['results']
-        return render_template('index.html', recipes=recipes)
+        return render_template('recipe.html', recipes=recipes)
 
-
-    # "Welcome page"
-    # return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
