@@ -3,11 +3,10 @@
 
 {% include 'partials/navbar.html' %}
 
-<div class="recipes">
 
 
     {% for recipe in recipes%}
-    <div>
+    <div class="recipes">
 
         <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
         <p>{{ recipe.title }}</p>
@@ -17,5 +16,4 @@
 
     
 
-</div>
 {% endblock %}

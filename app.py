@@ -36,7 +36,7 @@ def recipe():
     params = {
         'query': search_term,
         'apiKey': apikey,
-        'number': 3
+        'number': 6
     }
 
     url = "https://api.spoonacular.com/recipes/search"
