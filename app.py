@@ -49,6 +49,23 @@ def recipe():
         return render_template('recipe.html', recipes=recipes)
 
 
+
+@app.route('/recipe/<id>')
+def display_single_recipe(id):
+    params = {
+        'id': id,
+        "apiKey": apikey
+    }
+    url = f"https://api.spoonacular.com/recipes/{id}/information"
+    r = requests.get(url, params=params)
+    if r.status_code == 200:
+        json_recipe = json.loads(r.content)
+        ingredients = json_recipe['extendedIngredients']
+    else:
+        return "error"
+    return render_template('single_recipe.html', ingredients=ingredients)
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
     

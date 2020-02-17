@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    {% for ingredient in ingredients %}
+        <p>{{ ingredient.name }}</p>
+        <img src="https://spoonacular.com/cdn/ingredients_100x100/{{ ingredient.image }}" alt="ingredient image">
+
+    {% endfor %}
+
+{% endblock %}
