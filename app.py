@@ -2,11 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 import requests
 import json
-from dotenv import load_dotenv
-load_dotenv()
 
+from boto.s3.connection import S3Connection
 
-apikey = os.getenv("API_KEY")
+apikey = S3Connection(os.environ['API_KEY'])
 
 
 app = Flask(__name__)
