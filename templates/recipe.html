@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'partials/navbar.html' %}
+
+
+
+    {% for recipe in recipes%}
+    <div class="recipes">
+
+        <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
+        <p>{{ recipe.title }}</p>
+
+    </div>
+    {%endfor%}
+
+    
+
+{% endblock %}

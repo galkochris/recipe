@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'partials/navbar.html' %}
+
+<div class="hero-image">
+ <div class="container">
+     <h1><span>Recipe Finder</span></h1>
+
+ </div> 
+</div>
+
+
+    {% for recipe in recipes%}
+
+        <div class="recipes">
+
+
+        <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
+        <p>{{ recipe.title }}</p>
+
+
+        </div>
+        
+
+    {% endfor %}
+
+    
+
+{% endblock %}
+
