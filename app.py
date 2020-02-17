@@ -3,10 +3,8 @@ import os
 import requests
 import json
 
-from boto.s3.connection import S3Connection
 
-apikey = S3Connection(os.environ['API_KEY'], os.environ['S3_SECRET'])
-
+API_KEY = os.getenv('API_KEY')
 
 app = Flask(__name__)
 
@@ -16,7 +14,7 @@ def index():
 
     params = {
         'number': 4,
-        'apiKey': apikey
+        'apiKey': API_KEY
     }
 
     r = requests.get(url, params=params)
@@ -34,7 +32,7 @@ def recipe():
 
     params = {
         'query': search_term,
-        'apiKey': apikey,
+        'apiKey': API_KEY,
         'number': 6
     }
 
