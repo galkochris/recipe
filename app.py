@@ -5,7 +5,7 @@ import json
 
 from boto.s3.connection import S3Connection
 
-apikey = S3Connection(os.environ['API_KEY'])
+apikey = S3Connection(os.environ['API_KEY'], os.environ['S3_SECRET'])
 
 
 app = Flask(__name__)
