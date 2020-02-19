@@ -7,9 +7,11 @@
 
     {% for recipe in recipes%}
     <div class="recipes">
+        
 
         <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
         <p>{{ recipe.title }}</p>
+        <p><a href='/recipe/{{ recipe.id }}'>See Ingredients and Instructions</a></p>
 
     </div>
     {%endfor%}
