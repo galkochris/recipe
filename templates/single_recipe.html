@@ -8,4 +8,9 @@
 
     {% endfor %}
 
+    {% for step in steps %}
+        <h2>Step {{ step.number }}</h2>
+        <h5>{{ step.step }}</h5>
+    {% endfor %}
+
 {% endblock %}

@@ -63,7 +63,19 @@ def display_single_recipe(id):
         ingredients = json_recipe['extendedIngredients']
     else:
         return "error"
-    return render_template('single_recipe.html', ingredients=ingredients)
+
+    instructions_params = {
+        'apiKey': apikey
+    }
+    instructions_url = f"https://api.spoonacular.com/recipes/{id}/analyzedInstructions"
+
+    req = requests.get(instructions_url, params=instructions_params)
+    if req.status_code == 200:
+        json_instructions = json.loads(req.content)
+        steps = json_instructions[0]["steps"]
+    else:
+        return "error"
+    return render_template('single_recipe.html', ingredients=ingredients, steps=steps)
 
 
 if __name__ == '__main__':
