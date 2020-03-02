@@ -145,6 +145,9 @@ header {
   border-radius: 10px;
   opacity: .8;
   transition: all .3s ease-in;
+  width: 250px;
+  height: 210px;
+
 
 
 }
@@ -164,9 +167,10 @@ header {
   transform: scale(.5) translateZ(0px);
   transform-origin: top left;
   color: white; 
-  font-size: 50px; 
+  font-size: 40px; 
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: black;
+  padding-bottom: 100px;
 }
 
 .overlay {
@@ -179,6 +183,7 @@ header {
   opacity: 0;
   touch-action: none;
   transition: opacity 1s;
+
 }
 
 .hover:hover .overlay {
@@ -186,5 +191,12 @@ header {
   touch-action: auto;
   transform: scale(1)
 }
+
+#loadOverlay{display: none;}
+
+
+
+
+
 
 
