@@ -99,7 +99,6 @@ def text(id):
         measurement = ingredient['measures']['us']['unitShort']
         name = ingredient['name']
         all_ingredients.append(f"{amount} {measurement} {name}")
-    print("{}".format('\n'.join(all_ingredients)))
 
     account_sid = os.getenv("ACCOUNT_SID")
     auth_token = os.getenv("AUTH_TOKEN")
@@ -113,7 +112,6 @@ def text(id):
         from_=os.getenv("TWILIO_NUMBER"),
         to=f'+1{request.form.get("phone_number")}'
     )
-    print(message.body)
 
     return redirect(url_for('display_single_recipe', id=id))
 
