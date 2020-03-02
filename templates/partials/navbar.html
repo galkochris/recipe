@@ -1,33 +1,15 @@
 <header id="top" class="tri">
   <nav id="links">
-      <a href="/">Home</a>
-      <a href="/">Recipes</a>
-      <a href="/">My Recipes</a>
-      </nav>
-      
-      <a href="#" id="search"><span class="pe pe-7s-search"></span></a>
-
-
-    <form action='/recipe'>
-
-      <div class="wrap">
-        <div class="search">
-           <input type="text" name="user_input" class="text-field" placeholder="Recipes?" >
-           <!-- <input type="submit" value="Search recipes" /> -->
-           <button type="submit" img src="https://img.icons8.com/cotton/2x/search--v2.png" class="searchButton">
-             <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-
-
-    </form>
-
-      <!-- Back to top button -->
-      <!-- <a href="#" id="scrollToTop"><span class="pe pe-7s-up-arrow"> <img src="http://fa2png.io/r/stroke-7/up-arrow/?color=b9bbbe&margin=0&size=256"></span></a> -->
+    <a href="/">Home</a>
+    <a href="/">Recipes</a>
+    <a href="/">My Recipes</a>
   </nav>
-  <div id="logo">
-      <span class="#placeholder"></span>
-
-  </div>
+  <form action='/recipe'>
+    <div class="wrap">
+      <div class="search">
+        <input class="form-control mr-sm-2" type="search" name="user_input" placeholder="What Recipe are you looking for?" aria-label="Search">
+        <button class="btn btn-warning" type="submit"> <img src="static/img/search.png" alt="" width="20" height="20"> </button>
+      </div>
+    </div>
+  </form>
 </header>
