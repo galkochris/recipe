@@ -248,27 +248,86 @@ h4 {
   position: relative;
 }
 
-.card {
-  padding-left: 100px;
-}
+
 
 .recipe-image {
-  width: 500px;
-  height: 500px;
-;
+
+  position: absolute;
+	left: 50%;
+	top: 50%;
+	height: auto;
+	width: 100%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 }
 
 .card2 {
-  background-color: beige;
+  background-color: #F6F6F6;
+  top: 300px;
+  left: 600px;
+  position: absolute;
+  width: 500px;
+  height: 700px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size:15px;
+	text-align: center;
+  font-weight: normal;
+  color: #222;
+  padding-left: 5px;
 }
 
 .ingredients {
-  position: fixed;
+  position: relative;
+  padding-left: 50px;
+  font-family: "Lucida Grande", Tahoma;
+  font-size: 10px;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: uppercase;
+  color: #666666;
+  margin-top: 10px;
+  letter-spacing: 0.3em;
+ 
 }
 
 .scroll {
-  max-height: 100px;
+  max-height: 500px;
+  max-width: 500px;
   overflow-y: auto;
+  
+}
+
+.thumbnail {
+  float : left;
+	position : relative ;
+	left : 30px;
+	top : -30px;
+	height : 320px;
+	width : 530px;
+	-webkit-box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.75);
+	overflow: hidden;
+
+}
+
+.thumbnail:hover {
+  -webkit-box-shadow: 18px 18px 70px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 18px 18px 70px 0px rgba(0,0,0,0.75);
+	box-shadow: 18px 18px 70px 0px rgba(0,0,0,0.75);
+  
+}
+
+.card {
+	position : relative;
+	height: 700px;
+	width: 1200px;
+	margin : 200px auto;
+	background-color : #FFF;
+	-webkit-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
 }
 
 
