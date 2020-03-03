@@ -4,6 +4,7 @@ import requests
 import json
 import time
 from dotenv import load_dotenv
+from twilio.rest import Client
 load_dotenv()
 
 
@@ -79,7 +80,7 @@ def display_single_recipe(id):
         steps = json_instructions[0]["steps"]
     else:
         return "error"
-    return render_template('single_recipe.html', ingredients=ingredients, steps=steps)
+    return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id)
 
     
     

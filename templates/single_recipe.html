@@ -12,6 +12,14 @@
 
     {% endfor %}
 
+    <form action="/{{ recipe_id }}/text" method="POST">
+        <label for="text">Phone Number</label>
+        <p>
+           +1<input type="text" name="phone_number" id="phone_number">
+           <button type="submit">Send me the ingredients</button> 
+        </p>
+    </form>
+
     {% for step in steps %}
         <h2>Step {{ step.number }}</h2>
         <h5>{{ step.step }}</h5>
