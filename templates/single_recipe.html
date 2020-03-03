@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'partials/navbar.html' %}
 
-
+{% for recipes in recipes %}
+<img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
+{% endfor %}
     {% for ingredient in ingredients %}
+    
         <p>{{ ingredient.name }}</p>
-        <img src="https://spoonacular.com/cdn/ingredients_100x100/{{ ingredient.image }}" alt="ingredient image">
+        <!-- <img src="https://spoonacular.com/cdn/ingredients_100x100/{{ ingredient.image }}" alt="ingredient image"> -->
 
+    {% endfor %}
+
+    {% for step in steps %}
+        <h2>Step {{ step.number }}</h2>
+        <h5>{{ step.step }}</h5>
     {% endfor %}
 
 {% endblock %}

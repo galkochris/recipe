@@ -3,38 +3,46 @@
 
 {% include 'partials/navbar.html' %}
 
-<div id="loadOverlay" style="background-color:#333; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+
 
 
 <div class="hero-image">
  <div class="container">
-    <h1><span>Recipe Finder</span></h1>
-     <!-- <div id="content">Loading...</div> -->
-
-
-
+    <h1><span>Recipes</span></h1>
+  
  </div> 
 </div>
 
 
 
 
-    <!-- {% for recipe in recipes%} -->
-    <div class="recipes">
+<div class="random-section"><div data-aos="zoom-in-down">
+<h3>Here's some magic. Some random recipes just <em>for you.</em></h3>
+<h4>(Refresh to see more!)</h4>
+</div>
+</div>
+    <!-- {% for recipe in recipes %}
+
+    <div class="recipes"><div data-aos="zoom-in">
         <div class="hover">
+        <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
 
-
-
+       <div class="title"><div class="overlay">{{ recipe.title }}</div></div> 
         </div>
         </div>
+    </div> -->
 
-
+  
     
 
         
 
     <!-- {% endfor %} -->
+    <div class="loader">
+        <img src="static/loader.gif" alt="Loading..." />
+    </div>
 
+</div>
     
 
 {% endblock %}

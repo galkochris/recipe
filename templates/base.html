@@ -3,33 +3,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+      <link rel="stylesheet" href="static/style.css">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+       <script type="text/javascript" src="static/js/pace.min.js"></script>
+       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
  
 
       {% block content %}
 
   
     {% endblock %}
- <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="static/style.css">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
 
 
      </head>
      <body>
      <script>
-      $(function () { 
-                    $("#content").load("/ajax/index"); 
-                });
-      setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
-    function removeLoader(){
-        $( "#content" ).fadeOut(500, function() {
-          $( "#content" ).remove(); 
-      });  
-    }
+        AOS.init();
+        
+          window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; // class "loader hidden"
+    });
            window.onscroll = function() {myFunction()};
     
           var navbar = document.getElementById("navbar");
@@ -43,10 +45,7 @@
             }
           }
 
-          $(document).ready( function() {
-  $("#loadOverlay").css("display","none");
-});
-    
+          
         
          
          
