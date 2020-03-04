@@ -14,7 +14,7 @@
 <div class="ingredients">
     {% for ingredient in ingredients %}
     
-        <p>{{ ingredient.amount.rstrip('.0') }} {{ ingredient.measures.us.unitShort }} {{ ingredient.name }}</p>
+        <p>{{ ingredient.amount }} {{ ingredient.measures.us.unitShort }} {{ ingredient.name }}</p>
 
     {% endfor %}
     </div>
