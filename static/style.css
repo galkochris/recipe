@@ -104,7 +104,7 @@ header {
   height: 400px;
   background: url(/./2.png) no-repeat center;
   background-size: cover;
-  margin-left: 120px;
+  margin: auto;
 }
 
 .container1 {
@@ -119,8 +119,12 @@ header {
 }
 
 .container h1{
+  padding-top: 150px;
   font-size: 72px;
   letter-spacing: 0.2em;
+  padding-left: 330px;
+  color: white;
+  text-transform: uppercase;
 }
 
 .container h1 span {
