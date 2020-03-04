@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 from twilio.rest import Client
 load_dotenv()
 
-# This comment does nothing
-
 
 apikey = os.getenv("API_KEY")
 
@@ -84,5 +82,40 @@ def display_single_recipe(id):
         return "error"
     return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id)
 
-    
+@app.route('/<id>/text', methods=['POST'])
+def text(id):
+    params = {
+        "apiKey": apikey
+    }
+    url = f"https://api.spoonacular.com/recipes/{id}/information"
+    r = requests.get(url, params=params)
+    if r.status_code == 200:
+        json_recipe = json.loads(r.content)
+        ingredients = json_recipe['extendedIngredients']
+        title = json_recipe['title']
+    else:
+        return "error"
+
+    all_ingredients = []
+
+    for ingredient in ingredients:
+        amount = ingredient['amount']
+        measurement = ingredient['measures']['us']['unitShort']
+        name = ingredient['name']
+        all_ingredients.append(f"{amount} {measurement} {name}")
+
+    account_sid = os.getenv("ACCOUNT_SID")
+    auth_token = os.getenv("AUTH_TOKEN")
+
+    client = Client(account_sid, auth_token)
+
+    msg_txt = "Ingredients for {}:\n{}".format(title, '\n'.join(all_ingredients))
+
+    message = client.messages.create(
+        body= msg_txt,
+        from_=os.getenv("TWILIO_NUMBER"),
+        to=f'+1{request.form.get("phone_number")}'
+    )
+
+    return redirect(url_for('display_single_recipe', id=id))    
     
