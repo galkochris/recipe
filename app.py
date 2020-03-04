@@ -27,7 +27,7 @@ def index():
     recipes = json_recipes['recipes']
 
     return render_template('index.html', recipes=recipes)
-    # return render_template('test.html')
+
 
 
 
