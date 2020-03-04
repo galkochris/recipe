@@ -3,9 +3,7 @@ import os
 import requests
 import json
 import time
-from dotenv import load_dotenv
 from twilio.rest import Client
-load_dotenv()
 
 # Spoonacular
 apikey = os.getenv("API_KEY")
