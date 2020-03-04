@@ -10,13 +10,6 @@ load_dotenv()
 # Spoonacular
 apikey = os.getenv("API_KEY")
 
-# Twilio Setup
-account_sid = os.getenv("ACCOUNT_SID")
-auth_token = os.getenv("AUTH_TOKEN")
-twilio_number = os.getenv("TWILIO_NUMBER")
-
-client = Client(account_sid, auth_token)
-
 
 app = Flask(__name__, static_url_path='')
 
@@ -101,6 +94,13 @@ def display_single_recipe(id):
 # Sends a text message with a grocery list 
 @app.route('/<id>/text', methods=['POST'])
 def text(id):
+    # Twilio Setup
+    account_sid = os.getenv("ACCOUNT_SID")
+    auth_token = os.getenv("AUTH_TOKEN")
+    twilio_number = os.getenv("TWILIO_NUMBER")
+
+    client = Client(account_sid, auth_token)
+
     params = {
         "apiKey": apikey
     }
