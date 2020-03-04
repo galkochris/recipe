@@ -7,12 +7,20 @@ from dotenv import load_dotenv
 from twilio.rest import Client
 load_dotenv()
 
-
+# Spoonacular
 apikey = os.getenv("API_KEY")
+
+# Twilio Setup
+account_sid = os.getenv("ACCOUNT_SID")
+auth_token = os.getenv("AUTH_TOKEN")
+twilio_number = os.getenv("TWILIO_NUMBER")
+
+client = Client(account_sid, auth_token)
 
 
 app = Flask(__name__, static_url_path='')
 
+# Home page showing random recipes
 @app.route('/')
 def index():
     url = "https://api.spoonacular.com/recipes/random"
@@ -31,7 +39,7 @@ def index():
 
 
 
-
+# Results page for a recipe search
 @app.route('/recipe')
 def recipe():
 
@@ -54,7 +62,7 @@ def recipe():
         recipes = json_recipes['results']
         return render_template('recipe.html', recipes=recipes)
 
-
+# Displays a single recipe with instructions
 @app.route('/recipe/<id>')
 def display_single_recipe(id):
     params = {
@@ -70,6 +78,10 @@ def display_single_recipe(id):
     else:
         return "error"
 
+    for ingredient in ingredients:
+        ingredient['amount'] = str(ingredient['amount']).rstrip('.0')
+        ingredient['amount'] = str(ingredient['amount']).strip('0')
+
     instructions_params = {
         'apiKey': apikey
     }
@@ -83,6 +95,10 @@ def display_single_recipe(id):
         return "error"
     return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id, image=image)
 
+
+# Twilio 
+
+# Sends a text message with a grocery list 
 @app.route('/<id>/text', methods=['POST'])
 def text(id):
     params = {
@@ -100,21 +116,17 @@ def text(id):
     all_ingredients = []
 
     for ingredient in ingredients:
-        amount = ingredient['amount']
+        amount = str(ingredient['amount']).rstrip('.0')
+        amount = str(ingredient['amount']).strip('0')
         measurement = ingredient['measures']['us']['unitShort']
         name = ingredient['name']
         all_ingredients.append(f"{amount} {measurement} {name}")
-
-    account_sid = os.getenv("ACCOUNT_SID")
-    auth_token = os.getenv("AUTH_TOKEN")
-
-    client = Client(account_sid, auth_token)
 
     msg_txt = "Ingredients for {}:\n{}".format(title, '\n'.join(all_ingredients))
 
     message = client.messages.create(
         body= msg_txt,
-        from_=os.getenv("TWILIO_NUMBER"),
+        from_=twilio_number,
         to=f'+1{request.form.get("phone_number")}'
     )
 
