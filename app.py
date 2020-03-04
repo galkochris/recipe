@@ -15,19 +15,19 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
-    # url = "https://api.spoonacular.com/recipes/random"
+    url = "https://api.spoonacular.com/recipes/random"
 
-    # params = {
-    #     'number': 3,
-    #     'apiKey': apikey
-    # }
+    params = {
+        'number': 3,
+        'apiKey': apikey
+    }
 
-    # r = requests.get(url, params=params)
-    # json_recipes = json.loads(r.content)
-    # recipes = json_recipes['recipes']
+    r = requests.get(url, params=params)
+    json_recipes = json.loads(r.content)
+    recipes = json_recipes['recipes']
 
-    # return render_template('index.html', recipes=recipes)
-    return render_template('test.html')
+    return render_template('index.html', recipes=recipes)
+    # return render_template('test.html')
 
 
 

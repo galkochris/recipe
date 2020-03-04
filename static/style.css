@@ -100,11 +100,11 @@ header {
 
 .hero-image {
   position: relative;
-  width: 1200px;
+  width: 1170px;
   height: 400px;
-  background: url(/static/img/2.png) no-repeat center;
+  background: url(/./2.png) no-repeat center;
   background-size: cover;
-  margin-left: 60px;
+  margin-left: 20px;
 }
 
 .container {
@@ -403,5 +403,9 @@ h4 {
   justify-content: center;
 }
 
+
+h5 {
+  padding-left: 500px;
+}
 
 
