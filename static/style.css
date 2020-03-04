@@ -104,7 +104,7 @@ header {
   height: 400px;
   background: url(/./2.png) no-repeat center;
   background-size: cover;
-  margin-left: 20px;
+  margin-left: 120px;
 }
 
 .container {
@@ -404,8 +404,8 @@ h4 {
 }
 
 
-h5 {
-  padding-left: 500px;
+h6 {
+  padding-left: 600px;
 }
 
 
