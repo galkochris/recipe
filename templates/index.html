@@ -18,7 +18,7 @@
 
 <div class="random-section"><div data-aos="zoom-in-down">
 <h3>Here's some magic. Some random recipes just <em>for you.</em></h3>
-<h5>(Refresh to see more!)</h5>
+<h6>(Refresh to see more!)</h6>
 </div>
 </div>
      {% for recipe in recipes %}
@@ -28,6 +28,9 @@
         <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
 
        <div class="title"><div class="overlay">{{ recipe.title }}</div></div> 
+       <div class="see-more">
+        <p><a href='/recipe/{{ recipe.id }}'>See Ingredients and Instructions</a></p>
+    </div>
         </div>
         </div>
     </div> 
@@ -37,7 +40,7 @@
 
         
 
-    {% endfor %}  -->
+    {% endfor %} 
     <div class="loader">
         <img src="/./loader.gif" alt="Loading..." />
     </div>
