@@ -33,12 +33,12 @@
 
 
     
-    <div class="card2 scroll">
-    {% for step in steps %}
+<div class="card2 scroll">
     <div class="steps">
-    <h5>{{ step.step }}</h5>
-</div>
+    {% for step in steps %}
+        <h6>{{ step.number }}. {{ step.step }}</h6><br>
     {% endfor %}
+    </div>
 </div>
 
 

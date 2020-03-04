@@ -246,7 +246,6 @@ h4 {
   text-align: center;
   font-size: 10px;
   position: relative;
-  padding-left:
 }
 
 
@@ -464,7 +463,9 @@ padding-top: 200px;
 
 }
 
-
+h6 {
+  padding-bottom: 1.5rem;
+}
 
 
 
