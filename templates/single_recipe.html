@@ -4,6 +4,7 @@
 {% include 'partials/navbar.html' %}
 
 <div class="card">
+
     <div class="thumbnail">
         <div class="recipe-image">
             <img src="{{ image }}" alt="recipe image">
@@ -17,9 +18,8 @@
 
     {% endfor %}
     </div>
-</div>
 
-
+<div class="twillio">
     <form action="/{{ recipe_id }}/text" method="POST">
         <label for="text">Phone Number</label>
         <p>
@@ -27,6 +27,11 @@
            <button type="submit">Send me the ingredients</button> 
         </p>
     </form>
+</div>
+</div>
+
+
+
     
     <div class="card2 scroll">
     {% for step in steps %}

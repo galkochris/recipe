@@ -337,6 +337,7 @@ h4 {
 .steps {
   align-content: center;
   padding-top: 20px;
+  letter-spacing: 1px
 
 }
 
@@ -407,5 +408,32 @@ h4 {
 h6 {
   padding-left: 600px;
 }
+
+.twillio {
+  padding-top: 30px;
+}
+
+button {
+  color: #0099CC; 
+  background: transparent;
+  border: 2px solid #0099CC;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase; 
+}
+
+button:hover {     
+  background-color: #008CBA;
+  color: white; }
 
 
