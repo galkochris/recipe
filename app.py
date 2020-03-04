@@ -96,7 +96,7 @@ def display_single_recipe(id):
     return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id, image=image)
 
 
-# Twilio 
+# Twilio route
 
 # Sends a text message with a grocery list 
 @app.route('/<id>/text', methods=['POST'])
