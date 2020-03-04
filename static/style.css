@@ -265,7 +265,7 @@ h4 {
 .card2 {
   background-color: #F6F6F6;
   top: 300px;
-  left: 600px;
+  left: 700px;
   position: absolute;
   width: 500px;
   height: 700px;
@@ -279,7 +279,6 @@ h4 {
 
 .ingredients {
   position: relative;
-  padding-left: 50px;
   font-family: "Lucida Grande", Tahoma;
   font-size: 10px;
   font-weight: normal;
@@ -288,6 +287,7 @@ h4 {
   color: #666666;
   margin-top: 10px;
   letter-spacing: 0.3em;
+  margin-left: 100px;
  
 }
 
@@ -300,7 +300,7 @@ h4 {
 
 .thumbnail {
   float : left;
-	position : relative ;
+	position : relative;
 	left : 30px;
 	top : -30px;
 	height : 320px;
@@ -330,4 +330,12 @@ h4 {
 	box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
 }
 
+.see-more {
+  padding-top: 100px;
+}
 
+.steps {
+  align-content: center;
+  padding-top: 20px;
+
+}
