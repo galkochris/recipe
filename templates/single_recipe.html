@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'partials/navbar.html' %}
+
+<div class="card">
+
+    <div class="thumbnail">
+        <div class="recipe-image">
+            <img src="{{ image }}" alt="recipe image">
+</div>
+</div>
+
+<div class="ingredients">
+    {% for ingredient in ingredients %}
+    
+        <p>{{ ingredient.amount }} {{ ingredient.measures.us.unitShort }} {{ ingredient.name }}</p>
+
+    {% endfor %}
+    </div>
+
+<div class="twillio">
+    <form action="/{{ recipe_id }}/text" method="POST">
+        <label for="text">Phone Number</label>
+        <p>
+           +1<input type="text" name="phone_number" id="phone_number">
+           <button type="submit">Send me the ingredients</button> 
+        </p>
+    </form>
+</div>
+</div>
+
+
+
+    
+<div class="card2 scroll">
+    <div class="steps">
+    {% for step in steps %}
+        <h6>{{ step.number }}. {{ step.step }}</h6><br>
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

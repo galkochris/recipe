@@ -3,40 +3,69 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+      <link rel="stylesheet" href="/./style.css">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+       <link rel="stylesheet" href="css/animate.css">
+       <script src="js/wow.min.js"></script>
+ 
 
       {% block content %}
 
+  
     {% endblock %}
- <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-     <!-- BOOTSTRAP -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-     <!-- BOOTSTRAP THEME -->
-     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-     <link rel="stylesheet" href="static/style.css">
+  
 
-     <script>
-       window.onscroll = function() {myFunction()};
-
-      var navbar = document.getElementById("navbar");
-      var sticky = navbar.offsetTop;
-
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-     
-     
-     </script>
 
      </head>
+     <body>
+     <script>
+        AOS.init();
+        
+          window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+    });
+           window.onscroll = function() {myFunction()};
+    
+          var navbar = document.getElementById("navbar");
+          var sticky = navbar.offsetTop;
+    
+          function myFunction() {
+            if (window.pageYOffset >= sticky) {
+              navbar.classList.add("sticky")
+            } else {
+              navbar.classList.remove("sticky");
+            }
+          }
+
+
+          $(document).scroll(function(){
+        if ($(document).scrollTop() > 320 ) {
+       $('.main').addClass('active');
+       $('.reveal-main').addClass('activetwo');
+   }
+    
+    else {
+        $('.main').removeClass('active');
+         $('.reveal-main').removeClass('activetwo');
+    }
+
+});
+ 
+          
+        
+         
+         
+         </script>
+      
     </body>
     </html>
      
