@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 import requests
 import json
+import time
 from dotenv import load_dotenv
 from twilio.rest import Client
 load_dotenv()
@@ -12,22 +13,26 @@ load_dotenv()
 apikey = os.getenv("API_KEY")
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
-    url = "https://api.spoonacular.com/recipes/random"
+    # url = "https://api.spoonacular.com/recipes/random"
 
-    params = {
-        'number': 4,
-        'apiKey': apikey
-    }
+    # params = {
+    #     'number': 3,
+    #     'apiKey': apikey
+    # }
 
-    r = requests.get(url, params=params)
-    json_recipes = json.loads(r.content)
-    recipes = json_recipes['recipes']
+    # r = requests.get(url, params=params)
+    # json_recipes = json.loads(r.content)
+    # recipes = json_recipes['recipes']
 
-    return render_template('index.html', recipes=recipes)
+    # return render_template('index.html', recipes=recipes)
+    return render_template('test.html')
+
+
+
 
 @app.route('/recipe')
 def recipe():
@@ -50,7 +55,6 @@ def recipe():
         json_recipes = json.loads(r.content)
         recipes = json_recipes['results']
         return render_template('recipe.html', recipes=recipes)
-
 
 
 @app.route('/recipe/<id>')
@@ -80,44 +84,5 @@ def display_single_recipe(id):
         return "error"
     return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id)
 
-@app.route('/<id>/text', methods=['POST'])
-def text(id):
-    params = {
-        "apiKey": apikey
-    }
-    url = f"https://api.spoonacular.com/recipes/{id}/information"
-    r = requests.get(url, params=params)
-    if r.status_code == 200:
-        json_recipe = json.loads(r.content)
-        ingredients = json_recipe['extendedIngredients']
-        title = json_recipe['title']
-    else:
-        return "error"
-
-    all_ingredients = []
-
-    for ingredient in ingredients:
-        amount = ingredient['amount']
-        measurement = ingredient['measures']['us']['unitShort']
-        name = ingredient['name']
-        all_ingredients.append(f"{amount} {measurement} {name}")
-
-    account_sid = os.getenv("ACCOUNT_SID")
-    auth_token = os.getenv("AUTH_TOKEN")
-
-    client = Client(account_sid, auth_token)
-
-    msg_txt = "Ingredients for {}:\n{}".format(title, '\n'.join(all_ingredients))
-
-    message = client.messages.create(
-        body= msg_txt,
-        from_=os.getenv("TWILIO_NUMBER"),
-        to=f'+1{request.form.get("phone_number")}'
-    )
-
-    return redirect(url_for('display_single_recipe', id=id))
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
     
     

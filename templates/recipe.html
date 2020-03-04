@@ -5,16 +5,20 @@
 
 
 
-    {% for recipe in recipes%}
+    {% for recipe in recipes %}
     <div class="recipes">
+        <div class="hover">
         
 
         <img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
-        <p>{{ recipe.title }}</p>
+        <div class="title"><div class="overlay">{{ recipe.title }}</div></div>
+        <div class="see-more">
         <p><a href='/recipe/{{ recipe.id }}'>See Ingredients and Instructions</a></p>
+    </div>
 
     </div>
-    {%endfor%}
+    </div>
+    {% endfor %}
 
     
 
