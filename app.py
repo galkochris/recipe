@@ -42,7 +42,7 @@ def recipe():
     params = {
         'query': search_term,
         'apiKey': apikey,
-        'number': 6
+        'number': 1
     }
 
     url = "https://api.spoonacular.com/recipes/search"
@@ -66,6 +66,7 @@ def display_single_recipe(id):
     if r.status_code == 200:
         json_recipe = json.loads(r.content)
         ingredients = json_recipe['extendedIngredients']
+        image = json_recipe['image']
     else:
         return "error"
 
@@ -80,7 +81,7 @@ def display_single_recipe(id):
         steps = json_instructions[0]["steps"]
     else:
         return "error"
-    return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id)
+    return render_template('single_recipe.html', ingredients=ingredients, steps=steps, recipe_id=id, image=image)
 
     
     

@@ -12,6 +12,8 @@
        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+       <link rel="stylesheet" href="css/animate.css">
+       <script src="js/wow.min.js"></script>
  
 
       {% block content %}
@@ -26,6 +28,7 @@
      <body>
      <script>
         AOS.init();
+        new WOW().init();
         
           window.addEventListener("load", function () {
     const loader = document.querySelector(".loader");
@@ -44,6 +47,20 @@
             }
           }
 
+
+          $(document).scroll(function(){
+        if ($(document).scrollTop() > 320 ) {
+       $('.main').addClass('active');
+       $('.reveal-main').addClass('activetwo');
+   }
+    
+    else {
+        $('.main').removeClass('active');
+         $('.reveal-main').removeClass('activetwo');
+    }
+
+});
+ 
           
         
          

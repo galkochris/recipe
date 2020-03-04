@@ -4,21 +4,19 @@
 {% include 'partials/navbar.html' %}
 
 <div class="card">
-{% for recipes in recipes %}
-<div class="thumbnail">
-<div class="recipe-image">
-<img src="https://spoonacular.com/recipeImages/{{ recipe.id }}-556x370.jpg" alt="recipe image">
+    <div class="thumbnail">
+        <div class="recipe-image">
+            <img src="{{ image }}" alt="recipe image">
 </div>
 </div>
-{% endfor %}
 
-
-
+<div class="ingredients">
     {% for ingredient in ingredients %}
-    <div class="ingredients">
+    
         <p>{{ ingredient.name }}</p>
-    </div>
+
     {% endfor %}
+    </div>
 </div>
 
 <!-- 
